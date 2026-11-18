@@ -4,25 +4,19 @@ public class cheval : MonoBehaviour
 {
     [SerializeField] private float speed = 10.2f;
     [SerializeField] private Rigidbody rbPlayer;
+    [SerializeField] private float sidewaysForce = 15f;
 
-
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    void FixeUdpate()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        if (Input.GetKey(KeyCode.UpArrow))
+        rbPlayerr.AddForce(0.0f, 0.0f, speed);
+        if (Input.GetKey(KeyCode.Q))
         {
-           up arrow key is pressed
+            rbPlayerr.AddForce(-sidewaysForce, 0.0f, 0.0f, ForceMode.VelocityChange);
         }
-        if (Input.GetKey(KeyCode.DownArrow))
+        if (Input.GetKey(KeyCode.D))
         {
-           down arrow key is pressed
+            rbPlayerr.AddForce(sidewaysForce, 0.0f, 0.0f, ForceMode.VelocityChange);
         }
-        rbPlayer.AddForce(0.0f, 0.0f, speed);
+       
     }
 }
